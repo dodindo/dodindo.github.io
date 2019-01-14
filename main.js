@@ -2,7 +2,7 @@ $(document).ready(function(){
    var mymap = L.map('mymap',
                     {
                      center: [52.1, 21.0], 
-                     zoom: 10,
+                     zoom: 12,
                      zoomControl:true,
                      attributionControl:true
                     }
