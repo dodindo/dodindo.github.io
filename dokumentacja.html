@@ -1,0 +1,126 @@
+<DOCUMENT html>
+    <html lang="pl">
+        <head>
+           <!--metadane identyfikacji-->
+           
+            <meta charset="utf-8">
+            <meta name="description" content="Strona interenetowa na potrzeby realizacji projektu">
+            <meta name="keywords" content="ATE, geodezja">
+            <meta name="author" content="DS">
+            <title> Analiza terenu projekt</title>
+            <link rel="stylesheet" href="../main.css">           
+        </head>
+        <body>
+            <header>
+               <div id="logotyp">
+                    <h1 class="logo">
+                    <span style="color:#2a5daf">ANAL</span>iza
+                    <span style="color:#2a5daf">Ter</span>enu 
+                    <span style="color:#2a5daf">pro</span>jekt
+                    </h1>
+               </div>
+            </header>
+            <nav>
+                <ul class="menu">
+                    <li><a href="../index.html">Strona główna</a><li>
+                    <li><a href="../Dokumentacja/dokumentacja.html">Dokumentacja</a><li>
+                    <li><a href="../Dokumentacja/strefy_buforowe.html">Mapy stref buforowych</a><li>
+                    <li><a href="../map/map.html">Interaktywna mapa</a><li>
+                    <li><a href="../Dokumentacja/kontakt.html">Kontakt</a><li>
+                    
+                </ul>
+            </nav>
+            
+            
+            <div class="container">
+                <div class="tekst">
+                    <article>
+                                            <article>
+                        <header>
+                            <center><h1>Opis ogólny</h1>
+                            <p>17.12.2018| 10:46 | Dominik </p></center>
+                        </header>
+                        <p>
+Celem analiz wielokryterialnych jest wybór rozwiązania optymalnego z wariantowych 
+rozwiązań wg różnych kryteriów trudno porównywanych ze sobą, a mających znaczący 
+wpływ na realizację i funkcjonowanie danego rozwiązania.  Celem naszego opracowania było wykonanie właśnie takiej analizy, której wynikową miałyby być obszary, które spełniałyby kryterium najlepszej lokalizacji dla szkoły. Obszarem naszego zainteresowania było miasto stołeczne Warszawa. 
+. 
+                        </br></br>
+                       
+Pracę wykonano w pogramie ArcMap, a do przeprowadzenia analizy posłużono się dociętymi do obszary opracowania warstwami pozyskanymi z OSM. Docięcie wykonano za pomocą funkcj Clip. Wyselekcjonowano z tego zesatwu danuch między innymi takie obiekty jak: drogi, koleje wody, szkoły, więzienia czy osiedla mieszknaiowe, tereny rekreacyjne, cmentarze.
+
+
+
+Strefy buforowe utworzone zostały według wytycznych opracowanych przez wykładowce
+               
+                        <header>
+                          
+                            <h1>
+                                Opis realizowanych czynności
+                            </h1>
+                            
+                        </header>
+                        <p>
+
+Korzystając z wygenerowanych stref utowrzono nową klasę za pomocą funkcji Identity. Jej zadaniem jest oblicznie przecięcia geometrycznego obiektów wejściowych , które stanowią bufory z jednostką ewidencyjną dla Mista Stołecznego Warszawy. Przekonwertwano warstwy na rastry, na których rozmiar komórek wyjściowych to 0,003m.
+Co więcej następnie została użyta funkcja WeightedOverlay,która wagowała dane wyniki. Celem było nałożenie na siebie rastrów i otrzymanie jednego podkład wynikowego pozwalającego na analizę najlepszych obszarów pod budowę szkoły. W celu wygładzenia rastra wykonano przepróbkowanie za pomoća narzędzia MajorityFilter.
+
+Dodatkowo została wykoanana mapa zboczy i spadków, ponieważ nie należy zapominać, że wszelkiego rodzaju konstrukcje budowlane nie powinny zjnajdować się na terenach o nachyleniu większym niż 5 stopni. Wygenerowano NMT, korzytsając z danych z poprzednich laboratoriów. Użyto także funkcji Slope.
+
+                        <header>
+                            <center><h1>Wykonane modele</h1></center>
+                        </header>
+Pierwszym z utworzonych modeli był model odpowiadający za utworzenie tak zwanej mapy spadków. W tym celu użyta została funkcja Model Builder, będąca na wyposażeniu programu ArcGIS.     
+                        </p>
+                        <center>
+                        <h3> Model nr 1</h3>
+                        </center>
+                        </p>
+                <div class="model">
+                   <center> <img src="../MODEL1.JPG"></center>
+                </div>
+                        <p>
+ Działanie modelu polegało w pierwszej kolejności na utworzeiu klasy zawierającej wartość Z. „ Ascii to Feature Class”. Kolejnym etapem było utworzenie warstwy rastrowej IDW. Następnie należało przyciąć raster do rządanego obszaru- w tym przypadku Warszawa Na samym końcu uwtorzono mapę spadków dla m. st Warszawy. Elemetem wejściowym jest plik, który zawiera NMT o wymiarach siatki 100m na 100m, a także obszar zainteresowania
+                            
+Element wejściowy modelu stanowi plik tekstowy, zamierający numeryczny model terenu o interwale siatki co najmniej 100m, a także obszar gminy Łódź.
+                        </p>
+                        <center>
+                        <h3> Model nr 2</h3>
+                        </center>
+                        </p>
+                <div class="model">
+                    <center><img src="../MODEL2.JPG" ></center>
+                </div>
+                        <p>
+Powyższy model ma na celu::
+                </br>             
+•	  Przycięcie wybranych klas do obszaru zainteresowania analizy
+ </br>
+•	  Dla przykładowych klas „budyni użyteczności publicznej oraz tereny rekreacyjne za pomocą narzędzia Select wybór obiektów z warstw na podstawie wartości atrybutów.
+ </br>
+•       Utowrzenie tak zwanych buforów, których kształt zdeterminowany jest od odległości od danego obiektu- narzędzie Multiple Ring Buffer
+ </br>
+•	  Za pomocą narzędzia Identity dokonanie przycięcia stref buforowych oraz obszaru gminy
+ </br>
+•	  Konwersją warstw wynikowych do postaci rastrowej Feature to Raster
+ </br> </br>
+                        </p>
+                       
+</br></br>
+                        <header>
+                            <center><h1>Wnioski</h1></center>
+                        </header>
+<p>
+Efektem końcowym pracy jest kompozycja mapowa ( Załącznik. pkt 1 ). Został on wykonany zgodnie z wytycznymi wykładowcy. Niestety program ArcGIS wymaga od komputera bardzo wysokiej mocy obliczniowej. W przypadku mojego obszaru, na którym znajdowało się wiele obiektów, po wykreowaniu modelu, jego działanie było bardzo opóźnione. Dodatkowo błędy, które pojawiają się, gdy program napotka na „puste pola” powodują, że produkt ESRI zawiesza się i nie pozwala na dalszą pracę. Niekiedy ciężko stwierdzić jest, czy wyniki podawane przez program są zgodne ze stanem w rzeczywistości.
+</br></br>
+</p>
+                        <header>
+                            <center><h1>Podsumowanie</h1></center>
+                        </header>
+<p>
+Takie analizy wykorzystywane są w urbanistyce do planowania rozkładu wybranych budynków, obiektów czy innej infrastruktury. Za planowanie rozkładu miasta odpowiedzialni są urzędnicy, którzy muszą współpracować ze specjalistami, którzy do perfekcji mają opanowane narzędzia GIS służące do analiz wielokryterialnych.
+</br></br></br></br></br></br>    
+</p>
+            </div>
+        </body>
+    </html>
